@@ -4,6 +4,4 @@ altair
 vega_datasets
 pandas
 numpy
-base64
-json
 gunicorn
