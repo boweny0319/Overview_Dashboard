@@ -435,4 +435,4 @@ def update_plot(startYear, endYear): #, in_out_state = 1, room_board = 1
 
 
 if __name__ == "__main__":
-    app.run_server(host="127.0.0.4", debug=True)
+    app.run_server(host="127.0.0.4")
