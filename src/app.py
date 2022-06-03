@@ -5,14 +5,14 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import altair as alt
 from vega_datasets import data
-import json
+# import json
 from dash import Input, Output, State, MATCH, ALL
 
 #data
 import pandas as pd
 import numpy as np
 import altair as alt
-from textwrap import wrap
+# from textwrap import wrap
 import base64
 
 app = dash.Dash(__name__, title='Overview Dashboard', external_stylesheets = [dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
@@ -46,7 +46,7 @@ df_YS = pd.read_csv("population.csv")
 df_YS_selected=df_YS.iloc[:, [0,1,3,4,11]]
 df_YS_selected = df_YS_selected[df_YS_selected["Statistical Area Classification (SAC)"].isin(["All census subdivisions","Within CMAs","Within CAs","Outside CMAs/CAs"])]
 df_YS_selected["content_name"]=df_YS_selected["Population and dwelling counts (3)"].apply(lambda x:x.split(",")[0])
-df_YS_selected['content_name'] = df_YS_selected['content_name'].apply(wrap, args=[20])
+# df_YS_selected['content_name'] = df_YS_selected['content_name'].apply(wrap, args=[20])
 
 #### SZ ####
 # employment data
