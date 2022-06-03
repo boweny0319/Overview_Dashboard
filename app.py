@@ -4,7 +4,7 @@ from dash import dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import altair as alt
-from vega_datasets import data
+# from vega_datasets import data
 # import json
 from dash import Input, Output, State, MATCH, ALL
 
