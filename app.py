@@ -12,8 +12,8 @@ from dash import Input, Output, State, MATCH, ALL
 import pandas as pd
 import numpy as np
 import altair as alt
-# from textwrap import wrap
-# import base64
+from textwrap import wrap
+import base64
 
 app = dash.Dash(__name__, title='Overview Dashboard', external_stylesheets = [dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 server = app.server
@@ -21,10 +21,10 @@ app.config.suppress_callback_exceptions = True
 
 ############################## Data #########################################
 
-# image_filename_small = 'Small.png' # replace with your own image
-# encoded_image_small = base64.b64encode(open(image_filename_small, 'rb').read())
-# image_filename_Medium = 'Medium.png' # replace with your own image
-# encoded_image_Medium = base64.b64encode(open(image_filename_Medium, 'rb').read())
+image_filename_small = 'Small.png' # replace with your own image
+encoded_image_small = base64.b64encode(open(image_filename_small, 'rb').read())
+image_filename_Medium = 'Medium.png' # replace with your own image
+encoded_image_Medium = base64.b64encode(open(image_filename_Medium, 'rb').read())
 
 #### BY ####
 
@@ -46,7 +46,7 @@ df_YS = pd.read_csv("population.csv")
 df_YS_selected=df_YS.iloc[:, [0,1,3,4,11]]
 df_YS_selected = df_YS_selected[df_YS_selected["Statistical Area Classification (SAC)"].isin(["All census subdivisions","Within CMAs","Within CAs","Outside CMAs/CAs"])]
 df_YS_selected["content_name"]=df_YS_selected["Population and dwelling counts (3)"].apply(lambda x:x.split(",")[0])
-# df_YS_selected['content_name'] = df_YS_selected['content_name'].apply(wrap, args=[20])
+df_YS_selected['content_name'] = df_YS_selected['content_name'].apply(wrap, args=[20])
 
 #### SZ ####
 # employment data
@@ -214,7 +214,7 @@ component_RCBP_Dscription = dbc.Card([
                 [
                     dbc.Col([
                             html.A([
-                                # html.Img(src='data:image/png;base64,{}'.format(encoded_image_small.decode()), style={'width': '395px', "marginTop": "60px"}),
+                                html.Img(src='data:image/png;base64,{}'.format(encoded_image_small.decode()), style={'width': '395px', "marginTop": "60px"}),
                             ], href='https://public.tableau.com/app/profile/tingwen7851/viz/SmallBusinessDashboard/Dashboard1')
                         ], width=4, style = {"padding-left": 0, "border-right": "rgb(220 220 220) solid 1px", "height": "450px", "marginTop": "10px"}),
                     dbc.Col([
@@ -245,7 +245,7 @@ component_RCBP_Dscription = dbc.Card([
                 [
                     dbc.Col([
                             html.A([
-                                # html.Img(src='data:image/png;base64,{}'.format(encoded_image_Medium.decode()), style={'width': '395px', "marginTop": "30px"}),
+                                html.Img(src='data:image/png;base64,{}'.format(encoded_image_Medium.decode()), style={'width': '395px', "marginTop": "30px"}),
                             ], href='https://public.tableau.com/app/profile/tingwen7851/viz/MediumBusinessProfile/Dashboard2')
                         ], width=4, style = {"padding-left": 0, "border-right": "rgb(220 220 220) solid 1px", "height": "375px", "marginTop": "10px"}),
                     dbc.Col([
